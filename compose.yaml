@@ -1,0 +1,59 @@
+name: harbour-commerce
+
+x-service: &service
+  init: true
+  restart: unless-stopped
+  read_only: true
+  tmpfs: [/tmp]
+  security_opt: [no-new-privileges:true]
+
+services:
+  checkout-service:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/checkout-service:${IMAGE_TAG:-latest}
+    build: ../checkout-service
+    depends_on:
+      product-catalog: {condition: service_healthy}
+      user-management: {condition: service_healthy}
+      inventory-service: {condition: service_healthy}
+      payment-service: {condition: service_healthy}
+      notification-service: {condition: service_healthy}
+  api-gateway:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/api-gateway:${IMAGE_TAG:-latest}
+    build: ../api-gateway
+    ports: ["127.0.0.1:${GATEWAY_PORT:-8080}:8080"]
+    depends_on:
+      checkout-service: {condition: service_healthy}
+      product-catalog: {condition: service_healthy}
+      user-management: {condition: service_healthy}
+      inventory-service: {condition: service_healthy}
+      payment-service: {condition: service_healthy}
+      notification-service: {condition: service_healthy}
+  user-management:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/user-management:${IMAGE_TAG:-latest}
+    build: ../user-management
+  product-catalog:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/product-catalog:${IMAGE_TAG:-latest}
+    build: ../product-catalog
+  inventory-service:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/inventory-service:${IMAGE_TAG:-latest}
+    build: ../inventory-service
+  payment-service:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/payment-service:${IMAGE_TAG:-latest}
+    build: ../payment-service
+  notification-service:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/notification-service:${IMAGE_TAG:-latest}
+    build: ../notification-service
+  storefront:
+    <<: *service
+    image: ghcr.io/harbour-commerce-demo/storefront:${IMAGE_TAG:-latest}
+    build: ../storefront
+    ports: ["127.0.0.1:${STOREFRONT_PORT:-3000}:8080"]
+    depends_on:
+      api-gateway: {condition: service_healthy}
