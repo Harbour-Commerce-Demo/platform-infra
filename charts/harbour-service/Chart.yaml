@@ -1,0 +1,5 @@
+apiVersion: v2
+name: harbour-service
+description: One Harbour Commerce service (Deployment + Service) on the demo cluster
+type: application
+version: 0.1.0

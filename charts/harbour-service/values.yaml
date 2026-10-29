@@ -1,0 +1,20 @@
+# Set per service in services/<name>.yaml. The name is also the Service's DNS
+# name, which the other services call (http://<name>:8080).
+name: ""
+
+image:
+  registry: 032424782345.dkr.ecr.us-east-1.amazonaws.com
+  # Pinned to a sha-<commit> tag pushed by the service's build.yml.
+  tag: ""
+
+replicas: 1
+port: 8080
+
+env: {}
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    memory: 256Mi

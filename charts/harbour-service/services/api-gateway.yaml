@@ -1,0 +1,3 @@
+name: api-gateway
+image:
+  tag: sha-36699fd7441abe3694cc449464ff57f9948e321e
