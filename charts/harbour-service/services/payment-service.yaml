@@ -1,0 +1,3 @@
+name: payment-service
+image:
+  tag: sha-35d8ffdae49718cf323799af5507a2f26f8e69a2

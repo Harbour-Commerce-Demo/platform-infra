@@ -1,0 +1,3 @@
+name: inventory-service
+image:
+  tag: sha-62182e1fd0727847450de48ca462c3c9458fff3f

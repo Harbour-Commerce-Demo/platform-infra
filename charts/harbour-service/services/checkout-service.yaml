@@ -1,0 +1,3 @@
+name: checkout-service
+image:
+  tag: sha-cc65ec38dbe0ceed13ea2cced209ce3d7a75e21a
