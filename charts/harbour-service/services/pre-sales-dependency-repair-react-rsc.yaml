@@ -1,0 +1,5 @@
+name: pre-sales-dependency-repair-react-rsc
+port: 8084
+healthPath: /api/health
+image:
+  tag: ""

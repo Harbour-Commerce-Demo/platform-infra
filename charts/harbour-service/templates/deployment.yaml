@@ -30,11 +30,11 @@ spec:
             {{- end }}
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: {{ .Values.healthPath }}
               port: http
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: {{ .Values.healthPath }}
               port: http
             initialDelaySeconds: 10
           resources:

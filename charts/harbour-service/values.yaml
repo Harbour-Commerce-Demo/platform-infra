@@ -9,6 +9,8 @@ image:
 
 replicas: 1
 port: 8080
+# Readiness and liveness probe path.
+healthPath: /healthz
 
 env: {}
 

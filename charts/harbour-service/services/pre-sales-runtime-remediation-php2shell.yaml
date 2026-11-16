@@ -1,0 +1,5 @@
+name: pre-sales-runtime-remediation-php2shell
+port: 8081
+healthPath: /health
+image:
+  tag: ""
