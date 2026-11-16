@@ -2,4 +2,4 @@ name: pre-sales-artifact-response-litellm
 port: 8082
 healthPath: /health
 image:
-  tag: ""
+  tag: sha-db772b9907b17a8e59f4957537f9501972491050
