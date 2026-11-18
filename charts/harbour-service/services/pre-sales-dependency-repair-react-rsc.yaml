@@ -2,4 +2,4 @@ name: pre-sales-dependency-repair-react-rsc
 port: 8084
 healthPath: /api/health
 image:
-  tag: sha-beb433efd8757fcb724e65459810c2e6f5897d43
+  tag: sha-32bd7e7b3f412ec302174aeb69a034beb162c2b7
