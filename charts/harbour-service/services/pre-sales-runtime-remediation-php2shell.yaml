@@ -2,4 +2,4 @@ name: pre-sales-runtime-remediation-php2shell
 port: 8081
 healthPath: /health
 image:
-  tag: sha-ce0f0eafcf8a6deac20e5176ad346a61948f538a
+  tag: sha-c0c19a3234296288ae6e3cbb433e2bc6eb6c0e58
